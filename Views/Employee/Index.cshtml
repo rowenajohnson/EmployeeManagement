@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EmployeeManagement_CRUDoperator.Models.EmployeeDetais>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Createw New</a>
+</p>
+
+@*For Display Employee Info*@
+<table class=" table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.emp_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birth_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.first_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hire_date)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var emp in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => emp.emp_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => emp.birth_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => emp.first_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => emp.last_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => emp.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => emp.hire_date)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@emp.no"> Edit</a>
+                <a asp-action="Details" asp-route-id="@emp.no"> Details</a>
+                <a asp-action="Delete" asp-route-id="@emp.no"> Delete </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
